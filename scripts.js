@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function startStory(videoName) {
-    videoPlayer.src = "/videos/home/" + videoName;
+    videoPlayer.src = "videos/home/" + videoName;
     videoPlayer.play();
   }
 });

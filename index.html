@@ -60,16 +60,23 @@
     </style>
 </head>
 <body>
-  <div class="video-container">
-    <video id="videoPlayer" width="1024" height="auto" controls>
-        <!-- El video no tiene un src fijo -->
-    </video>
-    <div class="overlay" id="overlay">
-      <div class="form-container" id="formContainer">
-        <!-- Los formularios se insertarán aquí -->
-      </div>
+    <div class="video-container">
+        <video id="videoPlayer" width="1024" height="auto" controls>
+            <!-- El video no tiene un src fijo -->
+        </video>
+        <div class="overlay" id="overlay">
+            <div class="form-container" id="formContainer">
+                <!-- Espacio para la barra de progreso -->
+                <div id="progressContainer">
+                    <progress id="progressBar" max="100" value="100"></progress>
+                </div>
+                <!-- Los formularios se insertarán aquí -->
+            </div>
+        </div>
     </div>
-</div>
+    
+    
+    
 <script src="scripts.js"></script>
 </body>
 </html>

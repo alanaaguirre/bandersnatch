@@ -15,6 +15,16 @@
     height: 100vh;
     background-color: #f0f0f0;
 }
+#playButton {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+        }
 
 .video-container {
     max-width: 1024px;
@@ -64,6 +74,9 @@
         <video id="videoPlayer" width="1024" height="auto" controls>
             <!-- El video no tiene un src fijo -->
         </video>
+        <button id="playButton">
+            <img src="img/play.png" alt="Play Button">
+        </button>
         <div class="overlay" id="overlay">
             <div class="form-container" id="formContainer">
                 <!-- Espacio para la barra de progreso -->

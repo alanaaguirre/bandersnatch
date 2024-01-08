@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const playButton = document.getElementById("playButton");
     const videoPath = "videos/home/main_clip.mp4";
-    const progressBarDuration = 100;
+    const progressBarDuration = 10;
 
     let isVideoPlaying = false;
     let isDecisionPrompted = false;

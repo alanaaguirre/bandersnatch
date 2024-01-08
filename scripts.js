@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", function () {
         options.forEach((option) => {
             const button = document.createElement("button");
             button.type = "button";
-            button.classList.add("btn", "btn-outline-light", "mx-2", "my-2"); // Clases de Bootstrap para estilos de botones
+            button.classList.add("btn", "btn-outline-light", "mx-1", "my-2"); // Clases de Bootstrap para estilos de botones
             button.innerText = option.title;
             button.addEventListener("click", function () {
                 hideForm();

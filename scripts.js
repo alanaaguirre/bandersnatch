@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (currentSrc.includes("_final")) {
             const finTitle = document.createElement("h1");
+            finTitle.classList.add("animate__animated", "animate__fadeIn"); // Agrega las clases de animación
             finTitle.innerText = "FIN";
             finTitle.style.color = "white";
             finTitle.style.fontFamily = "sans-serif";
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             progressAndFormContainer.style.display = "block";
+            progressAndFormContainer.classList.add("animate__animated", "animate__fadeIn"); // Agrega las clases de animación
             startProgressBar();
 
             const finalForm = createForm(finalOptions);
@@ -102,8 +104,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function hideForm() {
-        formContainer.innerHTML = "";
-        isDecisionPrompted = false;
+        const form = formContainer.querySelector("form");
+        if (form) {
+            form.classList.add("animate__animated", "animate__fadeOut"); // Agrega las clases de animación al formulario
+            setTimeout(() => {
+                formContainer.innerHTML = "";
+                form.classList.remove("animate__animated", "animate__fadeOut"); // Restablece las clases después de la animación
+            }, 500); // Ajusta según la duración de la animación
+            isDecisionPrompted = false;
+        }
     }
 
     function createForm(options) {
@@ -191,7 +200,13 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function hideProgressAndFormContainer() {
-        progressAndFormContainer.style.display = "none";
+        if (progressAndFormContainer.style.display !== "none") {
+            progressAndFormContainer.classList.add("animate__animated", "animate__fadeOut"); // Agrega las clases de animación
+            setTimeout(() => {
+                progressAndFormContainer.style.display = "none";
+                progressAndFormContainer.classList.remove("animate__animated", "animate__fadeOut"); // Restablece las clases después de la animación
+            }, 500); // Ajusta según la duración de la animación
+        }
     }
 
     function loadRandomClip() {

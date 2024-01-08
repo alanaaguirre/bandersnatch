@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const playButton = document.getElementById("playButton");
     const videoPath = "videos/home/main_clip.mp4";
-    const progressBarDuration = 10;
+    const progressBarDuration = 100;
 
     let isVideoPlaying = false;
     let isDecisionPrompted = false;
@@ -108,35 +108,38 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function createForm(options) {
         const form = document.createElement("form");
-
-        // Agregar la barra de progreso al formulario
+        form.classList.add("d-flex", "flex-column", "align-items-center"); // Clases de Bootstrap para diseño flexible
+    
+        // Agregar la barra de progreso al formulario antes que los botones
         appendProgressBar(form);
     
-        // Crear contenedor para los botones
+        // Crear un contenedor para los botones
         const buttonsContainer = document.createElement("div");
-        
+        buttonsContainer.classList.add("d-flex", "flex-row", "justify-content-center", "align-items-center", "flex-wrap"); // Clases de Bootstrap para diseño flexible
+    
         options.forEach((option) => {
             const button = document.createElement("button");
             button.type = "button";
-            button.classList.add("action-button");
+            button.classList.add("btn", "btn-outline-light", "mx-2", "my-2"); // Clases de Bootstrap para estilos de botones
             button.innerText = option.title;
             button.addEventListener("click", function () {
                 hideForm();
                 startStory(option.video);
             });
-    
-            // Agregar botón al contenedor de botones
             buttonsContainer.appendChild(button);
         });
     
         // Agregar el contenedor de botones al formulario
         form.appendChild(buttonsContainer);
-        
+    
         return form;
     }
     
+    
 
     function startStory(videoName) {
+        // Ocultar el overlay al cargar un nuevo clip
+        overlay.style.display = "none";
         if (videoPlayer.src !== "videos/home/" + videoName) {
             videoPlayer.src = "videos/home/" + videoName;
             videoPlayer.play();

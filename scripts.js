@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     formContainer.appendChild(progressAndFormContainer);
 
     const playButton = document.getElementById("playButton");
-    const videoPath = "videos/home/main_clip.mp4";
+    const videoPath = "videos/home-2/main_clip.mp4";
     const progressBarDuration = 10;
 
     let isVideoPlaying = false;
@@ -40,31 +40,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function showInitialOptions(currentSrc) {
         if (!isDecisionPrompted) {
-            let options;
-
-            if (currentSrc.includes("h2_d2.mp4")) {
-                options = [
-                    { video: "h2_d2_sec1_final.mp4", title: "Ir al cuarto 3" },
-                    { video: "h2_d2_sec2_final.mp4", title: "Ir al Rooftop" },
+            let decisionOptions;
+    
+            // Agregar lógica adicional según la estructura de tu historia
+            if (currentSrc.includes("main_clip.mp4")) {
+                decisionOptions = [
+                    { video: "h1.mp4", title: "Ir a la alacena" },
+                    { video: "h2.mp4", title: "Subir al segundo piso" },
+                ];
+            } else if (currentSrc.includes("h1.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d1.mp4", title: "Abrir la alacena" },
+                    { video: "h1_d2.mp4", title: "Agarrar dulces" },
+                ];
+            } else if (currentSrc.includes("h1_d1.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d1_s1.mp4", title: "Cerrar la alacena" },
+                    { video: "h1_d1_s2.mp4", title: "Tomar comida" },
+                ];
+            } else if (currentSrc.includes("h1_d1_s1.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d1_s1_1.mp4", title: "Salir al jardin" },
+                ];
+            } else if (currentSrc.includes("h1_d1_s1_1.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d1_s1_1_final.mp4", title: "Ingresar a la casa" },
+                ];
+            } else if (currentSrc.includes("h1_d2.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d2_s1.mp4", title: "Dejar los dulces" },
+                    { video: "h1_d2_s2.mp4", title: "Decisión 2 - Sub-decisión 2" },
                 ];
             } else if (currentSrc.includes("h2.mp4")) {
-                options = [
-                    { video: "h2_d1_final.mp4", title: "Ponerse a trabajar" },
-                    { video: "h2_d2.mp4", title: "Subir al 3er piso" },
+                decisionOptions = [
+                    { video: "h2_d1.mp4", title: "Ir al cuarto 2" },
+                    { video: "h2_d2.mp4", title: "Subir al tercer piso" },
                 ];
-            } else {
-                options = [
-                    { video: "h1_final.mp4", title: "Cerrar las persianas" },
-                    { video: "h2.mp4", title: "Sentarse en la silla" },
+            } else if (currentSrc.includes("h2_d2.mp4")) {
+                decisionOptions = [
+                    { video: "h2_d1_s1_final.mp4", title: "Ir al patio" },
+                    { video: "h2_d2_s2_final.mp4", title: "ir al Roof top" },
                 ];
             }
-
-            const initialForm = createForm(options);
+    
+            const initialForm = createForm(decisionOptions);
             formContainer.innerHTML = "";
             formContainer.appendChild(initialForm);
             isDecisionPrompted = true;
         }
     }
+    
 
     function showFinalOptions() {
         hideForm();
@@ -149,8 +174,8 @@ document.addEventListener("DOMContentLoaded", function () {
     function startStory(videoName) {
         // Ocultar el overlay al cargar un nuevo clip
         overlay.style.display = "none";
-        if (videoPlayer.src !== "videos/home/" + videoName) {
-            videoPlayer.src = "videos/home/" + videoName;
+        if (videoPlayer.src !== "videos/home-2/" + videoName) {
+            videoPlayer.src = "videos/home-2/" + videoName;
             videoPlayer.play();
             resetProgressBar();
             startProgressBar(videoPlayer.src);
@@ -212,26 +237,54 @@ document.addEventListener("DOMContentLoaded", function () {
     function loadRandomClip() {
         hideForm();
         hideProgressAndFormContainer();
-
+    
         let defaultOptions;
-        if (videoPlayer.src.includes("h2_d2.mp4")) {
+    
+        if (videoPlayer.src.includes("main_clip.mp4")) {
+            // Decisiones principales
             defaultOptions = [
-                { video: "h2_d2_sec1_final.mp4", title: "Ir al cuarto 3" },
-                { video: "h2_d2_sec2_final.mp4", title: "Ir al Rooftop" },
+                { video: "h1.mp4", title: "Tomar decisión en h1" },
+                { video: "h2.mp4", title: "Tomar decisión en h2" },
             ];
+        } else if (videoPlayer.src.includes("h1.mp4")) {
+            // Decisiones en h1
+            defaultOptions = [
+                { video: "h1_d1.mp4", title: "Tomar decisión en h1_d1" },
+                { video: "h1_d2.mp4", title: "Tomar decisión en h1_d2" },
+            ];
+        } else if (videoPlayer.src.includes("h1_d1.mp4")) {
+            // Decisiones en h1_d1
+            defaultOptions = [
+                { video: "h1_d1_s1.mp4", title: "Tomar decisión en h1_d1_s1" },
+                { video: "h1_d2_s2.mp4", title: "Tomar decisión en h1_d2_s2" },
+            ];
+        } else if (videoPlayer.src.includes("h1_d1_s1.mp4")) {
+            // Decisiones en h1_d1_s1
+            defaultOptions = [
+                { video: "h1_d1_s1_1_final.mp4", title: "Final 1" },
+            ];
+        } else if (videoPlayer.src.includes("h1_d2.mp4")) {
+            // Decisiones en h1_d2
+            // (Agregar más opciones según sea necesario)
         } else if (videoPlayer.src.includes("h2.mp4")) {
+            // Decisiones en h2
             defaultOptions = [
-                { video: "h2_d1_final.mp4", title: "Ponerse a trabajar" },
-                { video: "h2_d2.mp4", title: "Subir al 3er piso" },
+                { video: "h2_d1.mp4", title: "Tomar decisión en h2_d1" },
+                { video: "h2_d2.mp4", title: "Tomar decisión en h2_d2" },
             ];
-        } else {
+        } else if (videoPlayer.src.includes("h2_d1.mp4")) {
+            // Decisiones en h2_d1
+            // (Agregar más opciones según sea necesario)
+        } else if (videoPlayer.src.includes("h2_d2.mp4")) {
+            // Decisiones en h2_d2
             defaultOptions = [
-                { video: "h1_final.mp4", title: "Cerrar las persianas" },
-                { video: "h2.mp4", title: "Sentarse en la silla" },
+                { video: "h2_d2_s1_final.mp4", title: "Final 1" },
+                { video: "h2_d2_s2_final.mp4", title: "Final 2" },
             ];
         }
-
+    
         const randomOption = defaultOptions[Math.floor(Math.random() * defaultOptions.length)];
         startStory(randomOption.video);
     }
+    
 });

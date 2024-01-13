@@ -62,12 +62,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 decisionOptions = [
                     { video: "h1_d1_s1_1.mp4", title: "Salir al jardin" },
                     { video: "h1_d1_s1_2.mp4", title: "Sentarse en el comedor" },
-                ];
-            } else if (currentSrc.includes("h1_d1_s1_2.mp43")) {
-                decisionOptions = [
-                    { video: "h1_d2_s2_2_final.mp4", title: "Levantarse de la silla" },
-                    { video: "h1_d2_s2_1.mp4", title: "Admirar la planta" },
-                ];                                
+                ];                               
             } else if (currentSrc.includes("h1_d1_s1_1.mp4")) {
                 decisionOptions = [
                     { video: "h1_d1_s1_1_final.mp4", title: "Ingresar a la casa" },
@@ -75,7 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (currentSrc.includes("h1_d2.mp4")) {
                 decisionOptions = [
                     { video: "h1_d2_s1.mp4", title: "Dejar los dulces" },
-                    { video: "h1_d2_s2.mp4", title: "Decisión 2 - Sub-decisión 2" },
+                    { video: "h1_d2_s2.mp4", title: "Sentarse en la silla" },
+                ];
+            } else if (currentSrc.includes("h1_d2_s2.mp4")) {
+                decisionOptions = [
+                    { video: "h1_d2_s2_2_final.mp4", title: "Levantarse de la silla" },
+                    { video: "h1_d2_s2_1.mp4", title: "Admirar la planta" },
                 ];
             } else if (currentSrc.includes("h2.mp4")) {
                 decisionOptions = [

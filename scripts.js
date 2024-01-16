@@ -45,47 +45,63 @@ document.addEventListener("DOMContentLoaded", function () {
             // Agregar lógica adicional según la estructura de tu historia
             if (currentSrc.includes("main_clip.mp4")) {
                 decisionOptions = [
-                    { video: "h1.mp4", title: "Ir a la alacena" },
-                    { video: "h2.mp4", title: "Subir al segundo piso" },
+                    { video: "alacena.mp4", title: "Ir a la alacena" },
+                    { video: "2do-piso.mp4", title: "Subir al segundo piso" },
                 ];
-            } else if (currentSrc.includes("h1.mp4")) {
+            } else if (currentSrc.includes("alacena.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d1.mp4", title: "Abrir la alacena" },
-                    { video: "h1_d2.mp4", title: "Agarrar dulces" },
+                    { video: "abrir-alacena.mp4", title: "Abrir la alacena" },
+                    { video: "agarrar-dulces.mp4", title: "Agarrar dulces" },
                 ];
-            } else if (currentSrc.includes("h1_d1.mp4")) {
+            }  else if (currentSrc.includes("abrir-alacena.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d1_s1.mp4", title: "Cerrar la alacena" },
-                    { video: "h1_d1_s2.mp4", title: "Tomar comida" },
+                    { video: "cerrar-alacena.mp4", title: "Cerrar la alacena" },
+                    { video: "tomar-comida_finals.mp4", title: "Tomar comida" },
                 ];
-            } else if (currentSrc.includes("h1_d1_s1.mp4")) {
+            } else if (currentSrc.includes("sentarse-silla.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d1_s1_1.mp4", title: "Salir al jardin" },
-                    { video: "h1_d1_s1_2.mp4", title: "Sentarse en el comedor" },
+                    { video: "admirar-planta_final.mp4", title: "Admirar la planta" },
+                    { video: "levantarse-mesa.mp4", title: "Levantarse de la mesa" },
+                ];
+            } else if (currentSrc.includes("levantarse-mesa.mp4")) {
+                decisionOptions = [
+                    { video: "salir-calle_final.mp4", title: "Salir a la calle" },
+                    { video: "abrir-cava_final.mp4", title: "Abrir cava" },
+                ];
+            } else if (currentSrc.includes("cerrar-alacena.mp4")) {
+                decisionOptions = [
+                    { video: "salir-jardin.mp4", title: "Salir al jardin" },
+                    { video: "ir-sillon.mp4", title: "Ir al sillon" },
                 ];                               
-            } else if (currentSrc.includes("h1_d1_s1_1.mp4")) {
+            } else if (currentSrc.includes("ir-sillon.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d1_s1_1_final.mp4", title: "Ingresar a la casa" },
+                    { video: "acariciar-gato.mp4", title: "Acariciar al gato" },
+                    { video: "ir-2dopiso.mp4", title: "Ir al segundo piso" },
                 ];
-            } else if (currentSrc.includes("h1_d2.mp4")) {
+            } else if (currentSrc.includes("ir-2dopiso.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d2_s1.mp4", title: "Dejar los dulces" },
-                    { video: "h1_d2_s2.mp4", title: "Sentarse en la silla" },
+                    { video: "cuarto-2.mp4", title: "Ir al cuarto 2" },
+                    { video: "subir-tercerpiso.mp4", title: "Subir al tercer piso" },
                 ];
-            } else if (currentSrc.includes("h1_d2_s2.mp4")) {
+            } else if (currentSrc.includes("salir-jardin.mp4")) {
                 decisionOptions = [
-                    { video: "h1_d2_s2_2_final.mp4", title: "Levantarse de la silla" },
-                    { video: "h1_d2_s2_1.mp4", title: "Admirar la planta" },
+                    { video: "ingresar-casa.mp4", title: "Ingresar a la casa" },
+                    { video: "barrer-piedras_final.mp4", title: "Barrer piedras" },
                 ];
-            } else if (currentSrc.includes("h2.mp4")) {
+            } else if (currentSrc.includes("2do-piso.mp4")) {
                 decisionOptions = [
-                    { video: "h2_d1.mp4", title: "Ir al cuarto 2" },
-                    { video: "h2_d2.mp4", title: "Subir al tercer piso" },
+                    { video: "cuarto-2.mp4", title: "Ir al cuarto 2" },
+                    { video: "subir-tercerpiso.mp4", title: "Subir al tercer piso" },
                 ];
-            } else if (currentSrc.includes("h2_d2.mp4")) {
+            } else if (currentSrc.includes("subir-tercerpiso.mp4")) {
                 decisionOptions = [
-                    { video: "h2_d1_s1_final.mp4", title: "Ir al patio" },
-                    { video: "h2_d2_s2_final.mp4", title: "ir al Roof top" },
+                    { video: "patio_final.mp4", title: "Ir al patio" },
+                    { video: "rooftop_final.mp4", title: "ir al Roof top" },
+                ];
+            } else if (currentSrc.includes("ingresar-casa.mp4")) {
+                decisionOptions = [
+                    { video: "salir-calle_final.mp4", title: "Salir a la calle" },
+                    { video: "abrir-cava_final.mp4", title: "Abrir cava" },
                 ];
             }
     

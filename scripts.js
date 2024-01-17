@@ -349,7 +349,33 @@ document.addEventListener("DOMContentLoaded", function () {
             ];
         }
     
-        // ... (resto del código)
+         //H2
+         else if (videoPlayer.src.includes("2do-piso.mp4")) {
+            decisionOptions = [
+                { video: "subir-tercerpiso.mp4", title: "Subir al tercer piso" },
+                { video: "cuarto-2.mp4", title: "Ir al cuarto 2" },
+            ];
+        } else if (videoPlayer.src.includes("cuarto-2.mp4")) {
+            decisionOptions = [
+                { video: "salir-estudio.mp4", title: "Salir al estudio" },
+                { video: "cuarto-2.mp4", title: "Acostarse en la cama" },
+            ];
+        } else if (videoPlayer.src.includes("salir-estudio.mp4")) {
+            decisionOptions = [
+                { video: "subir-tercerpiso.mp4", title: "Subir al tercer piso" },
+                { video: "bajar-piso1.mp4", title: "Bajar al primer piso" },
+            ];
+        } else if (videoPlayer.src.includes("subir-tercerpiso.mp4")) {
+            decisionOptions = [
+                { video: "patio_final.mp4", title: "Ir al patio" },
+                { video: "rooftop_final.mp4", title: "Ir al fooftop" },
+            ];
+        } else if (videoPlayer.src.includes("bajar-piso1.mp4")) {
+            decisionOptions = [
+                { video: "alacena.mp4", title: "Ir a la alacena" },
+                { video: "2do-piso.mp4", title: "Subir al segundo piso" },
+            ];
+        }
     
         const randomOption = defaultOptions[Math.floor(Math.random() * defaultOptions.length)];
         startStory(randomOption.video);
